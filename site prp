@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastéis de Cerveja</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Bem-vindo aos Pastéis de Cerveja</h1>
+      <p>Experimente a combinação perfeita de sabor e tradição.</p>
+    </header>
+
+    <div class="slider">
+      <img id="slider-image" src="pastel1.jpg" alt="Pastel de cerveja 1">
+    </div>
+
+    <footer>
+      <p>© 2024 Pastéis de Cerveja | Sabores incríveis para todos os momentos</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #faf3e0;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #d67d3e;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.slider {
+  position: relative;
+  margin: 20px auto;
+  max-width: 600px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
+const images = [
+  'pastel1.jpg', // Substitua pelos caminhos reais das imagens
+  'pastel2.jpg',
+  'pastel3.jpg',
+  'pastel4.jpg'
+];
+
+let currentIndex = 0;
+
+const sliderImage = document.getElementById('slider-image');
+
+function changeImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  sliderImage.style.opacity = 0;
+
+  setTimeout(() => {
+    sliderImage.src = images[currentIndex];
+    sliderImage.style.opacity = 1;
+  }, 500);
+}
+
+// Troca de imagem a cada 3 segundos
+setInterval(changeImage, 3000);
